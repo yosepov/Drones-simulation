@@ -9,13 +9,36 @@ import { City } from './City'
 import Terrain from './Terrain'
 import { Terrains } from './terrains/Terrains'
 import { Drones } from './drones/Drones'
+import terrains from './terrains/terrains.json'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { destination, origin, position, current, height } from './Redux/Slices/DronesSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneTwoSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneThreeSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneFourSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneFiveSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneSixSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneSevenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneEightSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneNineSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneTenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneElevenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneTwelveSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneThirteenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneFourteenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneFifteenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneSixteenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneSeventeenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneEighteenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneNineteenSlice'
+// import { destination, origin, position, current, height } from './Redux/Slices/DroneTwentySlice'
+
+import { checkForAvailableHeight } from './Redux/Slices/HeightSlice'
+
 extend({ OrbitControls });
 
 
 const CameraControls = () => {
-  // Get a reference to the Three.js Camera, and the canvas html element.
-  // We need these to setup the OrbitControls component.
-  // https://threejs.org/docs/#examples/en/controls/OrbitControls
   const {
     camera,
     gl: { domElement },
@@ -27,7 +50,6 @@ const CameraControls = () => {
 };
 
 export default function App() {
-
 
   // const props = useControls({
   //   intensity: { value: 1, min: 0, max: 1, step: 0.1 },
