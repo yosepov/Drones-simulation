@@ -1,11 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { useSelector, useDispatch } from 'react-redux'
 
-import { destination, origin, position, current, getHeight } from './DronesSlice'
 
-const AddHeight = (index, height) => {
-  useDispatch(getHeight(index, height))
-}
 export const heightSlice = createSlice({
   name: 'height',
   initialState: {
@@ -35,7 +30,6 @@ export const heightSlice = createSlice({
           state.heights[i].available = false
           console.log("Drone: " + drone + " on height: " + state.heights[i].height)
           console.log("Height redux state: " + state.heights[i])
-          AddHeight(drone, state.heights[i].height)
         } else if (i >= state.heights[i].length) {
           i = -1
         } else {
@@ -47,6 +41,6 @@ export const heightSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { checkForAvailableHeight } = heightSlice.actions
+// export const { checkForAvailableHeight } = heightSlice.actions
 
 export default heightSlice.reducer
